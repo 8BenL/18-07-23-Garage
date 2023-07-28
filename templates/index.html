@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+     <Header><h1>Cars List</h1></Header>
+    <div class="search">
+        <h4>search</h4>
+        <form action="/search" method="get"> 
+            <input type="text" name="query" autofocus>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div class="cars">
+        {% for car in cars %}
+        <div class="car">
+            
+            {% for key, value in car.__dict__.items() %}
+                <div class="{{ key }}">{{ value }}</div>
+            {% endfor %}
+            <div class="profile"><a href="/profile?name={{ car.name }}&year={{ car.year }}&color={{ car.color }}&number={{ car.number }}&owner={{ car.owner }}&last_visit={{ car.last_visit }}&last_fixup={{ car.last_fixup }}">profile</a></div>
+            <div class="delete"><a href="/delete?name={{ car.name }}&number={{ car.number }}">delete</a></div>
+            <div class="update"><a href="/update?name={{ car.name }}&year={{ car.year }}&color={{ car.color }}&number={{ car.number }}&owner={{ car.owner }}&last_visit={{ car.last_visit }}&last_fixup={{ car.last_fixup }}">update</a></div>   
+        </div>
+        {% endfor %}
+    </div>
+    <div class="add">
+        <form action="/add" method="get">
+            <input type="text" name="name" placeholder="name" autofocus>
+            <input type="text" name="year" placeholder="year">
+            <input type="text" name="color" placeholder="color">
+            <input type="text" name="number" placeholder="number">
+            <input type="text" name="owner" placeholder="owner">
+            <input type="text" name="last_visit" placeholder="last visit">
+            <input type="text" name="last_fixup" placeholder="last fixup">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>

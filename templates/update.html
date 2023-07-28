@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Update Car</h1>
+    <div class="update">
+        <form action="/update" method="post">
+            name: <input type="text" name="name" value="{{ name }}" autofocus>
+            year: <input type="text" name="year" value="{{ year }}">
+            color: <input type="text" name="color" value="{{ color }}">
+            number: <input type="text" name="number" value="{{ number }}">
+            owner: <input type="text" name="owner" value="{{ owner }}">
+            last visit: <input type="text" name="last_visit" value="{{ last_visit }}">
+            last fixup: <input type="text" name="last_fixup" value="{{ last_fixup }}">
+            <input type="submit" value="Update">
+        </form>    
+    </div>
+</body>
+</html>
